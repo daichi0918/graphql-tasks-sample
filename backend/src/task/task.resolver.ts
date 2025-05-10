@@ -10,7 +10,10 @@ export class TaskResolver {
   // getTasks(): Task[] {
   //   return this.taskService.getTasks();
   // }
-  @Query(() => [Task], { nullable: 'items' })
+  @Query(() => [Task], {
+    nullable: 'items',
+    // , name: 'tasks'
+  })
   getTasks(): Task[] {
     return this.taskService.getTasks();
   }

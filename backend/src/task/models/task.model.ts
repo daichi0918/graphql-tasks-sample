@@ -14,6 +14,9 @@ export class Task {
   @Field()
   status: 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETED';
 
-  @Field({ nullable: true })
+  @Field({
+    nullable: true,
+    // , name: 'desc', description: 'タスクの説明'
+  })
   description: string;
 }
