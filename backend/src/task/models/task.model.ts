@@ -18,5 +18,5 @@ export class Task {
     nullable: true,
     // , name: 'desc', description: 'タスクの説明'
   })
-  description: string;
+  description?: string;
 }
