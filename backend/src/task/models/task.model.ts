@@ -15,9 +15,9 @@ export class Task {
   @Field()
   status: Status;
 
-  @Field({
+  @Field(() => String, {
     nullable: true,
-    // , name: 'desc', description: 'タスクの説明'
+    description: 'タスクの説明',
   })
   description: string | null;
 
