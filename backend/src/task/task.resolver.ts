@@ -15,12 +15,14 @@ export class TaskResolver {
     nullable: 'items',
     // , name: 'tasks'
   })
-  getTasks(): Task[] {
+  getTasks(): Promise<Task[]> {
     return this.taskService.getTasks();
   }
 
   @Mutation(() => Task)
-  createTask(@Args('createTaskInput') createTaskInput: CreateTaskInput): Task {
-    return this.taskService.createTask(createTaskInput);
+  async createTask(
+    @Args('createTaskInput') createTaskInput: CreateTaskInput,
+  ): Promise<Task> {
+    return await this.taskService.createTask(createTaskInput);
   }
 }
