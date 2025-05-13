@@ -1,7 +1,8 @@
 import { Query, Resolver, Mutation, Args } from '@nestjs/graphql';
 import { TaskService } from './task.service';
-import { Task } from './models/task.model';
+import { Task as TaskModel } from './models/task.model';
 import { CreateTaskInput } from './dto/createTask.input';
+import { Task } from 'generated/prisma';
 
 @Resolver()
 export class TaskResolver {
@@ -11,7 +12,7 @@ export class TaskResolver {
   // getTasks(): Task[] {
   //   return this.taskService.getTasks();
   // }
-  @Query(() => [Task], {
+  @Query(() => [TaskModel], {
     nullable: 'items',
     // , name: 'tasks'
   })
@@ -19,7 +20,7 @@ export class TaskResolver {
     return this.taskService.getTasks();
   }
 
-  @Mutation(() => Task)
+  @Mutation(() => TaskModel)
   async createTask(
     @Args('createTaskInput') createTaskInput: CreateTaskInput,
   ): Promise<Task> {
