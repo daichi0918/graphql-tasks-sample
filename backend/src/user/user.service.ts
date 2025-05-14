@@ -20,4 +20,16 @@ export class UserService {
       },
     });
   }
+
+  async getUser(email: string): Promise<User> {
+    const user = await this.prismaService.user.findUnique({
+      where: { email },
+    });
+
+    if (!user) {
+      throw new Error(`User not found for email: ${email}`);
+    }
+
+    return user;
+  }
 }
