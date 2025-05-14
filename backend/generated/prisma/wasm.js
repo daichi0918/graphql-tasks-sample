@@ -127,6 +127,16 @@ exports.Prisma.TaskScalarFieldEnum = {
   status: 'status',
   description: 'description',
   createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  userId: 'userId'
+};
+
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  password: 'password',
+  createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
@@ -151,7 +161,8 @@ exports.Status = exports.$Enums.Status = {
 };
 
 exports.Prisma.ModelName = {
-  Task: 'Task'
+  Task: 'Task',
+  User: 'User'
 };
 
 /**
