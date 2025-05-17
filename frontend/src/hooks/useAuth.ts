@@ -22,8 +22,9 @@ export const useAuth = () => {
       } else {
         setAuthInfo({ checked: true, isAuthenticated: false });
       }
-    } catch () {
+    } catch (error) {
       setAuthInfo({ checked: true, isAuthenticated: false });
+      console.log(error);
     }
   }, []);
 
